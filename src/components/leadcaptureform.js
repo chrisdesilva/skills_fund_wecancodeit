@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ebook from '../images/ebook.jpg'
-import { skfURL } from '../constants/programInfo'
+import { schoolName,skfURL } from '../constants/programInfo'
 
 const LeadCaptureForm = props => {
 
@@ -36,6 +36,10 @@ const LeadCaptureForm = props => {
             {
             "name": "stakeholder_type", 
             "value": "Student"
+            },
+            {
+            "name": "school", 
+            "value": `${schoolName}`
             }
         ],
         "context": {
@@ -73,6 +77,7 @@ const LeadCaptureForm = props => {
                 <div className="hidden">
                     <input type="text" name="Stakeholder Type" value="Student" readOnly/>
                     <input type="text" name="Lead Cycle" value="Lead Capture" readOnly/>
+                    <input type="text" name="School" value={schoolName} readOnly/>
                 </div>
                 {thankYou ? <p className="text-center">Thank you, your guide will be in your inbox soon!</p>: <input className="cursor-pointer opacityApply uppercase bg-primary p-3 mb-4 w-48 rounded-full shadow-lg text-white" value="Send me the guide!" id="leadCaptureSubmitBtn" type="submit"/>}
             </form>
